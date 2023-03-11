@@ -1,0 +1,7 @@
+@use '../utilities' as *;
+
+h2, h2 + p {
+    color: var(--color-white);
+    padding-bottom: 1rem;
+    opacity: .7;
+}

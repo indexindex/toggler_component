@@ -1,0 +1,27 @@
+@use '../utilities' as *;
+
+html {
+    font-size: var(--global-font-size);
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #131313;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: pxToRem(400px); // ? for DEMO-UI
+    margin: 3rem auto 0 auto;
+}

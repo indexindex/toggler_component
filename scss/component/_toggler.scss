@@ -1,0 +1,68 @@
+@use '../utilities' as *;
+
+.toggler {
+    display: grid;
+    grid-template-rows: min-content 0fr;
+    width: 100%;
+    overflow: hidden;
+    transition: grid-template-rows .5s cubic-bezier(.79, .14, .15, .86);
+
+    &:hover {
+        grid-template-rows: min-content 1fr;
+
+        [class*='--arrow'] { transform: rotate(-180deg); }
+
+        [class$='__details-wrapper'] { margin-top: .5rem; }
+    }
+
+    &__bar {
+        grid-row: 1 / 2;
+        display: flex;
+        align-items: center;
+        column-gap: .5rem;
+
+        &--icon {
+            width: pxToRem(12px);
+            height: pxToRem(12px);
+            padding: pxToRem(6px);
+            box-sizing: content-box;
+            background-color: var(--color-yellow);
+            clip-path: circle(50%);
+        }
+
+        &--title {
+            flex: 1;
+            color: var(--color-white);
+        }
+
+        &--arrow {
+            height: pxToRem(12px);
+            backface-visibility: hidden;
+            transition: transform .5s ease;
+        }
+    }
+
+    &__details {
+
+        &-wrapper {
+            grid-row: 2 / 4;
+            margin-top: 0;
+            transition: margin-top .5s ease;
+        }
+
+        &--title { color: var(--color-white); }
+
+        &--list {
+            list-style-position: inside;
+
+            li { color: var(--color-white); }
+        }
+    }
+
+    &__bar,
+    &__details {
+        padding: .5rem;
+        border-radius: 5px;
+        background-color: var(--color-black);
+    }
+}
